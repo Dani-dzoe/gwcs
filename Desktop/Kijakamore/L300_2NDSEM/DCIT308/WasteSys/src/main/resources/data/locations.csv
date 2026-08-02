@@ -1,0 +1,11 @@
+locationId,name,area,type,latitude,longitude
+1,Korle Bu,Accra,Hospital Zone,5.545,-0.228
+2,Kaneshie Market,Accra,Market,5.583,-0.242
+3,Madina,Greater Accra,Community,5.683,-0.166
+4,East Legon,Accra,Residential,5.650,-0.154
+5,Tema Station,Accra,Transport Hub,5.666,-0.015
+6,Dansoman,Accra,Community,5.558,-0.297
+7,Achimota,Accra,Transport Hub,5.640,-0.228
+8,Labone,Accra,Residential,5.553,-0.173
+9,Osu,Accra,Commercial,5.556,-0.181
+10,Circle,Accra,Transport Hub,5.603,-0.205

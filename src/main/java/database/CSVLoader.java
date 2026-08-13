@@ -17,6 +17,26 @@ import java.sql.Statement;
 public class CSVLoader {
     private Connection connection;
 
+    // =========================================================================
+    // ADDED: THE MAIN METHOD ENTRY POINT FOR YOUR TERMINAL COMMAND
+    // =========================================================================
+    public static void main(String[] args) {
+        System.out.println("Starting University of Ghana CSV Loader Tool...");
+        
+        // 1. Create an instance of the loader
+        CSVLoader loader = new CSVLoader();
+        
+        // 2. Clear old data to prevent duplicate primary key errors
+        loader.clearAllData();
+        
+        // 3. Load all files
+        loader.loadAllCSVFiles();
+        
+        // 4. Verify everything was stored in the tables correctly
+        loader.verifyData();
+    }
+    // =========================================================================
+
     public CSVLoader() {
         this.connection = DatabaseConnection.getInstance().getConnection();
     }
@@ -44,7 +64,7 @@ public class CSVLoader {
     public int loadLocations(String filePath) {
         System.out.println("Loading locations from " + filePath + "...");
         return loadCSV(filePath, 
-            "INSERT INTO locations (name, area, location_type, latitude, longitude, is_active) VALUES (?, ?, ?, ?, ?, ?)");
+            "INSERT INTO locations (location_id, name, area, location_type, latitude, longitude, is_active) VALUES (?, ?, ?, ?, ?, ?, ?)");
     }
 
     /**
@@ -53,7 +73,7 @@ public class CSVLoader {
     public int loadTrucks(String filePath) {
         System.out.println("Loading trucks from " + filePath + "...");
         return loadCSV(filePath, 
-            "INSERT INTO trucks (truck_name, truck_type, capacity_kg, home_location_id, availability_status, fuel_level) VALUES (?, ?, ?, ?, ?, ?)");
+            "INSERT INTO trucks (truck_id, truck_name, truck_type, capacity_kg, home_location_id, availability_status, fuel_level) VALUES (?, ?, ?, ?, ?, ?, ?)");
     }
 
     /**
@@ -62,7 +82,7 @@ public class CSVLoader {
     public int loadRoads(String filePath) {
         System.out.println("Loading roads from " + filePath + "...");
         return loadCSV(filePath, 
-            "INSERT INTO roads (from_location_id, to_location_id, distance_km, travel_time_minutes, road_condition_weight, is_one_way) VALUES (?, ?, ?, ?, ?, ?)");
+            "INSERT INTO roads (road_id, from_location_id, to_location_id, distance_km, travel_time_minutes, road_condition_weight, is_one_way) VALUES (?, ?, ?, ?, ?, ?, ?)");
     }
 
     /**
@@ -71,7 +91,7 @@ public class CSVLoader {
     public int loadWasteRequests(String filePath) {
         System.out.println("Loading waste requests from " + filePath + "...");
         return loadCSV(filePath, 
-            "INSERT INTO waste_requests (source_location_id, destination_location_id, category, urgency_level, weight_estimate_kg, volume_estimate_m3, time_submitted, deadline, status, priority_score) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            "INSERT INTO waste_requests (request_id, source_location_id, destination_location_id, category, urgency_level, weight_estimate_kg, volume_estimate_m3, time_submitted, deadline, status, assigned_truck_id, priority_score) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
     }
 
     /**
@@ -175,3 +195,4 @@ public class CSVLoader {
         System.out.println();
     }
 }
+

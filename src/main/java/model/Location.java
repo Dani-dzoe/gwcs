@@ -162,9 +162,9 @@ public class Location {
     public String toString() {
         return "Location{" +
                "locationId=" + locationId +
-               ", name='" + name + ''' +
-               ", area='" + area + ''' +
-               ", type='" + locationType + ''' +
+               ", name='" + name + '\'' +
+               ", area='" + area + '\'' +
+               ", type='" + locationType + '\'' +
                ", coordinates=(" + latitude + ", " + longitude + ")" +
                '}';
     }

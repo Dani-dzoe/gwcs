@@ -45,7 +45,7 @@ GhanaSmartWasteCollection/
 - Heap, Priority Queue, Binary Search Tree, Red-Black Tree, B-Tree
 - Hash Table, Custom Set, Custom Map, Disjoint Set, Graph
 
-### Algorithms
+## Algorithms
 - **Searching**: Linear Search, Binary Search
 - **Sorting**: Selection Sort, Insertion Sort, Merge Sort, Quick Sort
 - **Graph**: BFS, DFS, Dijkstra, Prim, Kruskal

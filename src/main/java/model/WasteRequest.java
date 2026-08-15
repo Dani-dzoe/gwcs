@@ -244,9 +244,9 @@ public class WasteRequest {
                "requestId=" + requestId +
                ", from=" + sourceLocationId +
                ", to=" + destinationLocationId +
-               ", category='" + category + ''' +
+               ", category='" + category + '\'' +
                ", urgency=" + urgencyLevel +
-               ", status='" + status + ''' +
+               ", status='" + status + '\'' +
                ", priority=" + priorityScore +
                '}';
     }

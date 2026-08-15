@@ -193,10 +193,10 @@ public class Truck {
     public String toString() {
         return "Truck{" +
                "truckId=" + truckId +
-               ", name='" + truckName + ''' +
-               ", type='" + truckType + ''' +
+               ", name='" + truckName + '\'' +
+               ", type='" + truckType + '\'' +
                ", capacity=" + capacityKg + "kg" +
-               ", status='" + availabilityStatus + ''' +
+               ", status='" + availabilityStatus + '\'' +
                ", fuel=" + fuelLevel + "%" +
                '}';
     }

@@ -6,8 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="wastesys" />
+        <module name="my-existing-project" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="wastesys" target="17" />
+    </bytecodeTargetLevel>
   </component>
 </project>

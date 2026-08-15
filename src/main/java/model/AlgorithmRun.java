@@ -225,8 +225,8 @@ public class AlgorithmRun {
     @Override
     public String toString() {
         return "AlgorithmRun{" +
-               "algorithm='" + algorithmName + ''' +
-               ", category='" + algorithmCategory + ''' +
+               "algorithm='" + algorithmName + '\'' +
+               ", category='" + algorithmCategory + '\'' +
                ", inputSize=" + inputSize +
                ", time=" + getCalculatedTimeMs() + "ms" +
                ", success=" + success +

@@ -1,0 +1,14 @@
+model/AlgorithmRun.class
+model/WasteRequest.class
+database/DatabaseConnection.class
+model/Truck.class
+database/LocationDAO.class
+model/Road.class
+model/Location.class
+database/CSVLoader.class
+database/RoadDAO.class
+database/DatabaseLoader.class
+database/WasteRequestDAO.class
+database/DatabaseInitializer.class
+database/AlgorithmRunDAO.class
+database/TruckDAO.class

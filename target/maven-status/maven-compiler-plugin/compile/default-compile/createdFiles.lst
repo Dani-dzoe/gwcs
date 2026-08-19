@@ -1,4 +1,5 @@
 model/AlgorithmRun.class
+algorithms/sorting/InsertionSort.class
 model/WasteRequest.class
 database/DatabaseConnection.class
 datastructures/DynamicArray.class
@@ -13,5 +14,6 @@ database/RoadDAO.class
 database/DatabaseLoader.class
 database/WasteRequestDAO.class
 database/DatabaseInitializer.class
+algorithms/searching/BinarySearch.class
 database/AlgorithmRunDAO.class
 database/TruckDAO.class

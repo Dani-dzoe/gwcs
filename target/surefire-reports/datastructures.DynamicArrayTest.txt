@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: datastructures.DynamicArrayTest
 -------------------------------------------------------------------------------
-Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.304 s -- in datastructures.DynamicArrayTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.163 s -- in datastructures.DynamicArrayTest

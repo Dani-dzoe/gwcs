@@ -222,6 +222,12 @@ public class AlgorithmRun {
         return "Unknown";
     }
 
+    /** CSV row representation from wisdom-performance branch adapted to main schema */
+    public String toCsvRow() {
+        return runId + "," + algorithmName + "," + inputSize + "," +
+               timeNanoseconds + "," + memoryKb + "," + dateRun;
+    }
+
     @Override
     public String toString() {
         return "AlgorithmRun{" +
@@ -243,6 +249,7 @@ public class AlgorithmRun {
 
     @Override
     public int hashCode() {
-        return Integer.hashCode(runId);
+        return java.util.Objects.hash(runId);
     }
 }
+

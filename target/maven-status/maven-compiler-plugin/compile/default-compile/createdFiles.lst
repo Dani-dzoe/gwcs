@@ -1,10 +1,13 @@
 model/AlgorithmRun.class
 model/WasteRequest.class
 database/DatabaseConnection.class
+datastructures/DynamicArray.class
 model/Truck.class
 database/LocationDAO.class
 model/Road.class
+datastructures/LinkedListDS.class
 model/Location.class
+datastructures/Node.class
 database/CSVLoader.class
 database/RoadDAO.class
 database/DatabaseLoader.class

@@ -72,6 +72,28 @@ public class AlgorithmRun {
         this.notes = notes;
     }
 
+    /**
+     * Compatibility Constructor for wisdom-performance branch runners
+     */
+    public AlgorithmRun(String runId, String algorithmName, int inputSize, long timeNanoseconds, long memoryKb, String dateRun) {
+        try {
+            this.runId = Integer.parseInt(runId);
+        } catch (NumberFormatException e) {
+            this.runId = 0; // Fallback default if UUID strings are used. //
+        }
+        this.algorithmName = algorithmName;
+        this.algorithmCategory = "Performance Test";
+        this.inputSize = inputSize;
+        this.timeNanoseconds = timeNanoseconds;
+        this.timeMilliseconds = timeNanoseconds / 1_000_000.0;
+        this.memoryKb = (int) memoryKb;
+        this.success = true;
+        try {
+            this.dateRun = Timestamp.valueOf(dateRun);
+        } catch (Exception e) {
+            this.dateRun = new Timestamp(System.currentTimeMillis());
+        }
+    }
     // Getters and Setters
 
     public int getRunId() {

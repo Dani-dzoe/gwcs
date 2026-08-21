@@ -7,8 +7,10 @@ import java.sql.Timestamp;
  * University of Ghana - DCIT 204308 Data Structures and Algorithms
  * 
  * Represents a service request in the waste collection system.
+ * 
+ * CHANGED: Now implements Comparable so it can be used in PriorityQueueDS
  */
-public class WasteRequest {
+public class WasteRequest implements Comparable<WasteRequest> {
     private int requestId;
     private int sourceLocationId;
     private int destinationLocationId;
@@ -39,8 +41,7 @@ public class WasteRequest {
     /**
      * Constructor with required fields
      */
-    public WasteRequest(int sourceLocationId, int destinationLocationId, 
-                        String category, int urgencyLevel, String timeSubmitted) {
+    public WasteRequest(int sourceLocationId, int destinationLocationId, String category, int urgencyLevel, String timeSubmitted) {
         this.sourceLocationId = sourceLocationId;
         this.destinationLocationId = destinationLocationId;
         this.category = category;
@@ -77,6 +78,23 @@ public class WasteRequest {
         this.updatedAt = updatedAt;
     }
 
+    public WasteRequest(String requestId, String location, String wasteType, int fillLevel, long daysUncollected, long dynamicWeight) {
+        try {
+            this.requestId = Integer.parseInt(requestId);
+        } catch (NumberFormatException e) {
+            this.requestId = 0;
+        }
+        this.category = wasteType;
+        this.urgencyLevel = fillLevel;
+        this.weightEstimateKg = (double) dynamicWeight;
+        this.volumeEstimateM3 = fillLevel * 0.1;
+        this.status = "PENDING";
+        this.priorityScore = (this.urgencyLevel * 0.06) + (daysUncollected * 0.4);
+
+    }
+    public double urgencyScore() {
+        return this.priorityScore;
+    }
     // Getters and Setters
 
     public int getRequestId() {
@@ -238,6 +256,18 @@ public class WasteRequest {
         return "pending".equals(status);
     }
 
+    /**
+     * ADDED: Compares two WasteRequests based on priority score.
+     * High priority scores will surface to the top of the collection.
+     */
+    @Override
+    public int compareTo(WasteRequest other) {
+        // Double.compare(other, this) sorts in DESCENDING order (highest priority score first)
+        // If your PriorityQueueDS naturally outputs lower values first (Min-Heap format),
+        // switch this to Double.compare(this.priorityScore, other.priorityScore).
+        return Double.compare(other.priorityScore, this.priorityScore);
+    }
+
     @Override
     public String toString() {
         return "WasteRequest{" +
@@ -264,3 +294,4 @@ public class WasteRequest {
         return Integer.hashCode(requestId);
     }
 }
+

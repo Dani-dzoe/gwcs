@@ -1,33 +1,58 @@
 package util;
 
 /**
- * Simple nanosecond-precision timer wrapping System.nanoTime().
+ * Timer - Utility for measuring execution time
+ * University of Ghana - DCIT 204308 Data Structures and Algorithms
  */
 public class Timer {
+    private long startTime;
+    private long endTime;
 
-    private long startNs;
-    private long elapsedNs;
-    private boolean running;
-
+    /**
+     * Start timer
+     */
     public void start() {
-        startNs = System.nanoTime();
-        running = true;
+        startTime = System.nanoTime();
     }
 
-    public long stop() {
-        if (!running) {
-            throw new IllegalStateException("Timer was not started");
-        }
-        elapsedNs = System.nanoTime() - startNs;
-        running = false;
-        return elapsedNs;
+    /**
+     * Stop timer
+     */
+    public void stop() {
+        endTime = System.nanoTime();
     }
 
+    /**
+     * Get elapsed time in nanoseconds
+     * CHANGED FROM elapsedNanos TO elapsedNs
+     */
     public long elapsedNs() {
-        return elapsedNs;
+        if (endTime == 0) {
+            return System.nanoTime() - startTime;
+        }
+        return endTime - startTime;
     }
 
-    public double elapsedMs() {
-        return elapsedNs / 1_000_000.0;
+    /**
+     * Get elapsed time in milliseconds
+     */
+    public double elapsedMillis() {
+        return elapsedNs() / 1_000_000.0;
+    }
+
+    /**
+     * Get elapsed time in seconds
+     */
+    public double elapsedSeconds() {
+        return elapsedNs() / 1_000_000_000.0;
+    }
+
+    /**
+     * Reset timer
+     */
+    public void reset() {
+        startTime = 0;
+        endTime = 0;
     }
 }
+

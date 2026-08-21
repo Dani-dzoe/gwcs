@@ -14,7 +14,7 @@ import java.util.*;
  */
 public class Kruskal {
 
-    private static class Edge implements Comparable<Edge> {
+    public static class Edge implements Comparable<Edge> {
         int from;
         int to;
         double weight;

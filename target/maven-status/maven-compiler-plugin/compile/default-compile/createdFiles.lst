@@ -28,6 +28,7 @@ scheduling/CircularScheduler.class
 scheduling/FIFOScheduler.class
 datastructures/DequeDS.class
 datastructures/Node.class
+app/Menu.class
 datastructures/CustomMap.class
 datastructures/Graph.class
 algorithms/sorting/QuickSort.class
@@ -47,6 +48,7 @@ algorithms/sorting/MergeSort.class
 algorithms/graph/Prim$Edge.class
 algorithms/graph/Dijkstra$Node.class
 database/CSVLoader.class
+app/Main.class
 performance/PerformanceRunner.class
 database/RoadDAO.class
 database/DatabaseLoader.class

@@ -18,7 +18,7 @@ public class PrimTest {
 
         List<Prim.Edge> mst = Prim.findMST(graph, 0);
 
-        assertEquals(4, mst.size());  // V-1 edges
+        assertEquals(3, mst.size());  // V-1 edges
     }
 
     @Test

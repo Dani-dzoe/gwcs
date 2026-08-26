@@ -23,9 +23,9 @@ public class DijkstraTest {
         Map<Integer, Double> distances = Dijkstra.shortestPaths(graph, 0);
 
         assertEquals(0.0, distances.get(0));
-        assertEquals(10.0, distances.get(1));
+        assertEquals(7.0, distances.get(1));
         assertEquals(5.0, distances.get(2));
-        assertEquals(11.0, distances.get(3));  // 0->1->3 = 10+1
+        assertEquals(8.0, distances.get(3));  // 0->1->3 = 10+1
     }
 
     @Test

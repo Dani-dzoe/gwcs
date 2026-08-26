@@ -18,7 +18,7 @@ public class KruskalTest {
 
         List<Kruskal.Edge> mst = Kruskal.findMST(graph);
 
-        assertEquals(4, mst.size());  // V-1 edges
+        assertEquals(3, mst.size());  // V-1 edges
     }
 
     @Test

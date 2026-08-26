@@ -36,16 +36,22 @@ public class BST<T extends Comparable<T>> {
     /**
      * Insert value
      */
+    private boolean isNewNodeInserted;
+    
     public void insert(T value) {
         if (value == null) {
             throw new IllegalArgumentException("Cannot insert null");
         }
+        isNewNodeInserted = false;
         root = insertRec(root, value);
-        size++;
+        if (isNewNodeInserted) {
+            size++;
+        }
     }
 
     private Node insertRec(Node node, T value) {
         if (node == null) {
+            isNewNodeInserted = true;
             return new Node(value);
         }
 

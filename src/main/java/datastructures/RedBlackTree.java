@@ -39,22 +39,29 @@ public class RedBlackTree<T extends Comparable<T>> {
     /**
      * Insert value
      */
+    private boolean isNewRBTNodeInserted;
+
     public void insert(T value) {
         if (value == null) {
             throw new IllegalArgumentException("Cannot insert null");
         }
 
+        isNewRBTNodeInserted = false;
         Node newNode = new Node(value, Color.RED);
 
         if (root == null) {
             root = newNode;
             root.color = Color.BLACK;
+            isNewRBTNodeInserted = true;
         } else {
             insertRec(root, newNode);
-            fixViolations(newNode);
+            if (isNewRBTNodeInserted) {
+                fixViolations(newNode);
+            }
         }
-
-        size++;
+        if (isNewRBTNodeInserted) {
+            size++;
+        }
     }
 
     private void insertRec(Node current, Node newNode) {
@@ -62,13 +69,15 @@ public class RedBlackTree<T extends Comparable<T>> {
             if (current.left == null) {
                 current.left = newNode;
                 newNode.parent = current;
+                isNewRBTNodeInserted = true;
             } else {
                 insertRec(current.left, newNode);
             }
-        } else {
+        } else if (newNode.data.compareTo(current.data) > 0) {
             if (current.right == null) {
                 current.right = newNode;
                 newNode.parent = current;
+                isNewRBTNodeInserted = true;
             } else {
                 insertRec(current.right, newNode);
             }
